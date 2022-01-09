@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { Fragment } from 'react';
+import MyName from './MyName.js';
 
 function App() {
+  const value = 2;
+  const style = {
+    backgroundColor: 'black',
+    fontSize: '32px',
+    color: 'white'
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Fragment>
+    <div>react</div>
+    <div>{value}</div>
+    <div style={style} className='App'>
+      {
+        (() => {
+          if (value === 1) return '1이다'
+          if (value === 2) return '2이다'
+          if (value === 3) return '3이다'
+        })()
+      }
     </div>
+    <MyName name='react'></MyName>
+    <MyName ></MyName>
+    </Fragment>
   );
 }
 
