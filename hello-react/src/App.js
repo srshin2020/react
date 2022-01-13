@@ -1,6 +1,7 @@
 import './App.css';
 import { Fragment } from 'react';
 import MyName from './MyName.js';
+import Counter from './Counter.js';
 
 function App() {
   const value = 2;
@@ -23,7 +24,8 @@ function App() {
       }
     </div>
     <MyName name='react'></MyName>
-    <MyName ></MyName>
+    <MyName></MyName>
+    <Counter></Counter>
     </Fragment>
   );
 }
