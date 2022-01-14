@@ -5,16 +5,20 @@ import Counter from './Counter.js';
 
 function App() {
   const value = 2;
-  const style = {
+  const styleTitle = {
     backgroundColor: 'black',
     fontSize: '32px',
     color: 'white'
   }
   return (
+    // 여러개의 element를 하기 위해 fragment가 필요함. 
     <Fragment>
-    <div>react</div>
+    {/* css style을 변수로 정의 가능 */}
+    <div style={styleTitle}>react</div>
     <div>{value}</div>
-    <div style={style} className='App'>
+    {/* css style의 class는 className으로 설정*/}
+    <div  className='App'> 
+    {/* function을 바로 정의하면서 부르기  */}
       {
         (() => {
           if (value === 1) return '1이다'
@@ -23,7 +27,9 @@ function App() {
         })()
       }
     </div>
+    {/* component 호출 */}
     <MyName name='react'></MyName>
+    {/* 변수없이 호출 */}
     <MyName></MyName>
     <Counter></Counter>
     </Fragment>
