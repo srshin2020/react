@@ -21,18 +21,25 @@ body {
   flex-direction: row;
 }
 .nav {
+  /* display: block; */
   flex-grow: 0;
-  padding:10px 40px 0px 10px;
+  /* padding:10px 40px 0px 10px; */
   /* background-color: #999000; */
-  /* border-right: 1px solid black; */
 }
 
-.nav li {
-  margin: 0px 0px 10px 0px;
+
+.nav-item {
+  display:block;
+  padding : 5px 10px 5px 10px;
 }
 
 .article {
   padding: 10px 10px 0px 10px;
   background-color: #eeeeee;
   flex : auto;
+}
+
+.active {
+  background-color: #131313;
+  color: #cccccc;
 }

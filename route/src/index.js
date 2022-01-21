@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link, NavLink} from 'react-router-dom';
 
 
 function Home() {
@@ -27,9 +27,9 @@ function App() {
   return (
     <div className="container">
       <ul className="nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/topics">Topics</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><NavLink className="nav-item" to="/">Home</NavLink></li>
+        <li><NavLink className="nav-item" to="/topics">Topics</NavLink></li>
+        <li><NavLink className="nav-item" to="/contact">Contact</NavLink></li>
       </ul>
       <Routes >
         <Route path="/" element={<Home />}></Route>
