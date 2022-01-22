@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Routes, Link, NavLink} from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link, NavLink, useParams} from 'react-router-dom';
 
 
 function Home() {
@@ -11,9 +11,33 @@ function Home() {
   )
 }
 
+
+let contents = [
+  {id : 0, title : "HTML", description : "HTML is ..."},
+  {id : 1, title : "JS", description : "JS is ..."},
+  {id : 2, title : "REACT", description : "REACT  is ..."},
+]
+
+function Subtopic() {
+  let param = useParams(); 
+  let content=contents[param.topic_id];
+  return (
+    <div> {content.description}</div>
+  )
+}
+
 function Topics() {
   return (
-    <div className="article" >Topic...</div>
+    <div className="container" >
+    <div className="article">Topic...</div>
+    <ul className="nav">
+      {contents.map (index =>(<li key={index.id}><NavLink className="nav-item" to={`${index.id}`}>{index.title}</NavLink></li>))}  
+    </ul>
+    <Routes >
+        <Route path=":topic_id" element={<Subtopic/>} ></Route>
+    </Routes>
+
+    </div>
   )
 }
 
@@ -32,9 +56,9 @@ function App() {
         <li><NavLink className="nav-item" to="/contact">Contact</NavLink></li>
       </ul>
       <Routes >
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/topics" element={<Topics />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/" element={<Home />}/>
+        <Route path="/topics/*" element={<Topics />}/>
+        <Route path="/contact" element={<Contact />}/>
       </Routes>
     </div>
   )
