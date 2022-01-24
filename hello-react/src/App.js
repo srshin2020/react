@@ -1,9 +1,9 @@
 import './App.css';
 import React, { Fragment } from 'react';
-import MyName from './MyName.js';
-import Counter from './Counter.js';
-import Clock from './Clock.js'
-import Board from './Board.js'
+import MyName from './component/MyName.js';
+import Counter from './component/Counter.js';
+import Clock from './component/Clock.js'
+import Board from './component/Board.js'
 
 const board = {
   title: "게시글 제목",
@@ -42,8 +42,9 @@ function App() {
           })()
         }
       </div>
-      {/* inline if 로 출력 */}
-      {value == 1? '1이다' : '2이다'}
+
+      {/* inline if  */}
+      {value === 1? '1이다' : '2이다'}
 
       {/* 4. component 호출 props로 변수 넘김*/}
       <MyName name='김민우'></MyName>
