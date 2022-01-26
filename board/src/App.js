@@ -1,5 +1,25 @@
 // import './App.css';
 import Customer from "./component/Customer";
+import Table from '@material-ui/core/Table';
+import { Paper } from "@material-ui/core";
+import { TableHead } from "@material-ui/core";
+import { TableBody } from "@material-ui/core";
+import { TableCell } from "@material-ui/core";
+import { TableRow } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import { Component } from "react";
+
+const styles = theme =>({
+  root: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto'
+  },
+  table: {
+    minWidth: 1080
+  }
+
+})
 
 const customer = [{
   id: 1,
@@ -26,24 +46,34 @@ const customer = [{
   job: '대학생'
 }]
 
-function App() {
-  return (
-    <div>
-      {
-        customer.map(c => {
-          return (
-            <Customer key={c.id}
-              id={c.id}
-              image={c.image}
-              name={c.name}
-              birthday={c.birthday}
-              gender={c.gender}
-              job={c.job} ></Customer>
-          )
-        })
-      }
-    </div>
-  );
+class App extends Component {
+  render() {
+    const {classes} = this.props;
+    return (
+      <Paper className={classes.root}>
+        <Table className={classes.table}>
+          <TableHead>
+            <TableRow>
+              <TableCell>id</TableCell>
+              <TableCell>image</TableCell>
+              <TableCell>name</TableCell>
+              <TableCell>birthday</TableCell>
+              <TableCell>gender</TableCell>
+              <TableCell>job</TableCell>
+            </TableRow>
+
+          </TableHead>
+          <TableBody>
+            {
+              customer.map(c => {
+                return (<Customer key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} ></Customer>)
+              })
+            }
+          </TableBody>
+        </Table>
+      </Paper>
+    )
+  }
 }
 
-export default App;
+export default withStyles(styles)(App);
