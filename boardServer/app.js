@@ -35,11 +35,11 @@ let db = new sqlite3.Database(':memory:', (err) => {
 
 db.serialize(function () {
 
-  db.run('CREATE TABLE customer(id integer primary key, image text, name text not null, birthday text, gender text, job text)');
+  db.run('CREATE TABLE customer(id integer primary key, image text, name text not null, birthday text, gender text, job text, deleted text )');
 
-  let stmt = db.prepare("INSERT INTO customer VALUES (NULL,?,?,?,?,?)");
+  let stmt = db.prepare("INSERT INTO customer VALUES (NULL,?,?,?,?,?,0)");
   for (c of customer) {
-    stmt.run(c.image, c.name, c.birthday, c.gender, c.job, (err) => {
+    stmt.run(c.image, c.name, c.birthday, c.gender, c.job, function(err) {
       if (err) {
         return console.error(err.message);
       }
@@ -61,7 +61,7 @@ app.use('/image', express.static('./upload'));
 
 app.get('/api/customer', (req, res) => {
   console.log('GET api')
-  db.all("SELECT * FROM customer", (err, rows) => {
+  db.all("SELECT * FROM customer where deleted =0 ", (err, rows) => {
     if (err) {
       return console.error(err.message);
     }
@@ -77,17 +77,23 @@ app.post('/api/customer', upload.single('image'), (req, res) => {
   let gender = req.body.gender;
   let job = req.body.job;
   let params = [image, name, birthday, gender, job];
-  db.serialize(function () {
-    db.run('INSERT INTO customer VALUES (NULL,?,?,?,?,?)', params)
-      .all("SELECT * FROM customer", (err, rows) => {
-        if (err) {
-          return console.error(err.message);
-        }
-        res.send(rows);
-      });
+  db.run('INSERT INTO customer VALUES (NULL,?,?,?,?,?,0)', params, (err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    res.send({ result: 'OK' });
   });
 });
 
+app.delete ('/api/customer/:id', (req, res) => {
+  db.run('UPDATE customer set deleted =1 where id =? ', req.params.id, (err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    res.send({ result: 'OK' });
+  });
+
+});
 // close the database connection
 // db.close((err) => {
 //   if (err) {

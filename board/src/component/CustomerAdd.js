@@ -31,6 +31,7 @@ class CustomerAdd extends Component {
         e.preventDefault();
         this.addCustomer()
             .then((response) => {
+                this.props.refreshState();
                 console.log(response.data);
             });
         this.setState({
