@@ -1,5 +1,6 @@
-// import './App.css';
+import './App.css';
 import Customer from "./component/Customer";
+import CustomerAdd from "./component/CustomerAdd"
 import Table from '@material-ui/core/Table';
 import { Paper } from "@material-ui/core";
 import { TableHead } from "@material-ui/core";
@@ -36,6 +37,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log('componentDidMount');
     this.timer = setInterval(this.progress, 100);
     this.callApi()
       .then(res => this.setState({ customer: res }))
@@ -57,6 +59,7 @@ class App extends Component {
   render() {
     const { classes } = this.props;
     return (
+      <div>
       <Paper className={classes.root}>
         <Table className={classes.table}>
           <TableHead>
@@ -85,6 +88,8 @@ class App extends Component {
           </TableBody>
         </Table>
       </Paper>
+      <CustomerAdd />
+      </div>
     )
   }
 }
