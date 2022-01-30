@@ -95,8 +95,6 @@ const styles = theme => ({
 
 })
 
-
-
 class App extends Component {
   // state : 변경이 되는 속성
   // props : 변경이 안되는 속성
@@ -105,15 +103,15 @@ class App extends Component {
     this.state = {
       customer: '',
       completed: 0,
-      searchKeyword : ''
+      searchKeyword: ''
     }
   }
 
   refreshState = () => {
     this.setState({
-      customer:'',
-      completed : 0,
-      searchKeyword : ''
+      customer: '',
+      completed: 0,
+      searchKeyword: ''
     });
     console.log('refreshState');
     this.timer = setInterval(this.progress, 100);
@@ -152,7 +150,7 @@ class App extends Component {
 
     const filteredComponent = (data) => {
       data = data.filter((c) => {
-        return c.name.indexOf(this.state.searchKeyword) > -1 ;
+        return c.name.indexOf(this.state.searchKeyword) > -1;
       });
       return data.map(c => {
         return <Customer refreshState={this.refreshState} key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} ></Customer>
