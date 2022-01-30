@@ -31,12 +31,16 @@ const styles = theme => ({
 class App extends Component {
   // state : 변경이 되는 속성
   // props : 변경이 안되는 속성
-  state = {
-    customer: '',
-    completed: 0
+  constructor(props) {
+    super(props);
+    this.state = {
+      customer: '',
+      completed: 0
+    }
   }
 
   refreshState = () => {
+    console.log('refreshState');
     this.timer = setInterval(this.progress, 100);
     this.callApi()
       .then(res => {
@@ -59,7 +63,7 @@ class App extends Component {
   }
 
   progress = () => {
-    console.log('timer called');
+    // console.log('timer called');
     const { completed } = this.state;
     this.setState({ completed: completed >= 100 ? 0 : completed + 1 })
 
@@ -85,7 +89,7 @@ class App extends Component {
             <TableBody>
               {
                 this.state.customer ? this.state.customer.map(c => {
-                  return (<Customer refreshState= {this.refreshState} key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} ></Customer>
+                  return (<Customer refreshState={this.refreshState} key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} ></Customer>
                   )
                 }) :
                   <TableRow>

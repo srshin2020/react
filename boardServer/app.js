@@ -86,6 +86,7 @@ app.post('/api/customer', upload.single('image'), (req, res) => {
 });
 
 app.delete ('/api/customer/:id', (req, res) => {
+  console.log('DELETE api')
   db.run('UPDATE customer set deleted =1 where id =? ', req.params.id, (err) => {
     if (err) {
       return console.error(err.message);
