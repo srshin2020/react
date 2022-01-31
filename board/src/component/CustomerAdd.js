@@ -17,6 +17,7 @@ const styles = theme => ({
 class CustomerAdd extends Component {
     constructor(props) {
         super(props);
+        // 고객추가시 받을 데이터 초기화 
         this.state = {
             image: null,
             name: '',
@@ -28,12 +29,17 @@ class CustomerAdd extends Component {
         }
     }
 
+    // 고객추가 Button Click시
+    // modal 창 보이기 위해 속성값 변경
     handleClickOpen = () => {
         this.setState({
             open: true
         });
 
     }
+    // modal 창 닫을 때 
+    // 창에 띄운 속성값 초기화 
+    // modal 창 보여주지 않기 위한 속성값 변경
     handleClose = () => {
         this.setState({
             image: null,
@@ -46,6 +52,7 @@ class CustomerAdd extends Component {
         });
     }
 
+    // file 선택시 
     handleFileChange = (e) => {
         this.setState({
             image: e.target.files[0],
@@ -53,12 +60,17 @@ class CustomerAdd extends Component {
         })
     }
 
+    // file 이외의 다른 속성값 입력시 
     handleValueChange = (e) => {
         let nextState = {};
         nextState[e.target.name] = e.target.value;
         this.setState(nextState);
     }
 
+    // modal창에서 고객 추가시 
+    // post command로 고객 정보 서버로 전송후
+    // 고객 리스트 refresh 
+    // modal 창 닫기 
     handleFormSubmit = (e) => {
         e.preventDefault();
         this.addCustomer()
@@ -69,6 +81,7 @@ class CustomerAdd extends Component {
         this.handleClose();
     }
 
+    // axios 이용하여 데이터 post cmd로 server로 전송
     addCustomer = () => {
         const url = '/api/customer';
         const formData = new FormData();

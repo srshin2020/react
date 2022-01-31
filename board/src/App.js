@@ -107,6 +107,9 @@ class App extends Component {
     }
   }
 
+  // 고객 리스트를 서버에서 가져와서 보여줌. 
+  // 고객을 추가하거나 삭제한 경우 변동사항을 실시간 보여주기 위함. 
+  // 고객 리스트를 가져오는 동안 progress를 보여주며, 가져오면 타이머를 멈춤
   refreshState = () => {
     this.setState({
       customer: '',
@@ -123,11 +126,13 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  // component가 처음에 마운트되었을 때 고객 리스트를 서버에서 가져옮.
   componentDidMount() {
     console.log('componentDidMount');
     this.refreshState();
   }
 
+  // 서버에 get command로 전송하고 response를 받아옮
   callApi = async () => {
     const response = await fetch('/api/customer');
     const body = await response.json();
@@ -135,19 +140,22 @@ class App extends Component {
     return body;
   }
 
+  // 서버에서 파일을 가져오는 동안 progress보여줌
   progress = () => {
     // console.log('timer called');
     const { completed } = this.state;
     this.setState({ completed: completed >= 100 ? 0 : completed + 1 })
   }
 
+  // keyword가 변경된 경우
   handleValueChange = (e) => {
     let nextState = {};
     nextState[e.target.name] = e.target.value;
     this.setState(nextState);
   }
-  render() {
 
+  render() {
+    // keyword를 포함한 고객리스트만 보여줘야 함.  
     const filteredComponent = (data) => {
       data = data.filter((c) => {
         return c.name.indexOf(this.state.searchKeyword) > -1;
@@ -162,12 +170,7 @@ class App extends Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-            >
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
               <MenuIcon />
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
@@ -199,11 +202,9 @@ class App extends Component {
             <TableHead>
               <TableRow>
                 {cellList.map((c) => {
-                  return (<TableCell className={classes.tableHead}>{c}</TableCell>
-                  )
+                  return (<TableCell className={classes.tableHead}>{c}</TableCell>)
                 })}
               </TableRow>
-
             </TableHead>
             <TableBody>
               {
