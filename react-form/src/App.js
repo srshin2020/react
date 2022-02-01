@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
+import { useForm } from "react-hook-form";
 
-function App() {
+
+import "./App.css";
+
+export default function App() {
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+  const password = useRef();
+  password.current = watch('password');
+  console.log(watch('password')); // watch input value by passing the name of it
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>email</label>
+      <input name='email' type='email' {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
+      {errors.email && <p>This field is required</p>}
 
-export default App;
+      <label>name</label>
+      <input name="name" defaultValue="" {...register("name", { required: true, maxLength: 10 })} />
+      {errors.name && errors.name.type === 'required' && <p>This field is required</p>}
+      {errors.name && errors.name.type === 'maxLength' && <p>Input length should be under 10 </p>}
+
+      <label>password</label>
+      <input name="password" type='password' {...register("password", { required: true, minLength: 6 })} />
+      {errors.password && errors.password.type === 'required' && <p>This field is required</p>}
+      {errors.password && errors.password.type === 'minLength' && <p> password should be longer than 6</p>}
+
+      <label>password confirm</label>
+      <input name="passwordConfirm" type='password' {...register("passwordConfirm",
+        { required: true, validate: (v) => v === password.current })} />        
+      {errors.passwordConfirm && errors.passwordConfirm.type === 'required' && <p>This field is required</p>}
+      {errors.passwordConfirm && errors.passwordConfirm.type === 'validate' && <p>password should be the same </p>}
+     {/* include validation with required or other standard HTML validation rules */}
+      {/* errors will return when field validation fails  */}
+
+      <input type="submit" />
+    </form>
+  );
+
+}
