@@ -5,6 +5,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import AppBar from "@material-ui/core/AppBar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import {Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link'
 
 const styles = {
     root: {
@@ -26,16 +28,22 @@ class AppShell extends React.Component {
     render() {
         const { classes } = this.props;
         return (
-            <div className={classes.root}>
-                <AppBar position="static">
-                    <IconButton className={classes.menuButton} color="inherit" onClick={this.handleDrawerToggle}>
-                        <MenuIcon />
-                    </IconButton>
-                </AppBar>
-                <Drawer open={this.state.toggle}>
-                    <MenuItem onClick={this.handleDrawerToggle}>Home</MenuItem>
-                    <MenuItem onClick={this.handleDrawerToggle}>Home2</MenuItem>
-                </Drawer>
+            <div>
+                <div className={classes.root}>
+                    <AppBar position="static">
+                        <IconButton className={classes.menuButton} color="inherit" onClick={this.handleDrawerToggle}>
+                            <MenuIcon />
+                        </IconButton>
+                    </AppBar>
+                    <Drawer open={this.state.toggle}>
+                        <MenuItem onClick={this.handleDrawerToggle}><RouterLink to='/'>Home</RouterLink></MenuItem>
+                        <MenuItem onClick={this.handleDrawerToggle}><RouterLink to='/text'>Text</RouterLink></MenuItem>
+                        <MenuItem onClick={this.handleDrawerToggle}><RouterLink to='/word'>Word</RouterLink></MenuItem>
+                    </Drawer>
+                </div>
+                <div id='content' style={{ margin: 'auto', marginTop: '20px' }}>
+                    {React.cloneElement(this.props.children)}
+                </div>
             </div>
         );
     }
