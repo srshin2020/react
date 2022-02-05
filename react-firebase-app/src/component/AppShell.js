@@ -1,12 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MenuItem from "@material-ui/core/MenuItem";
 import AppBar from "@material-ui/core/AppBar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import {Link as RouterLink } from 'react-router-dom';
-import Link from '@material-ui/core/Link'
+import {Link } from 'react-router-dom';
+// import Link from '@material-ui/core/Link'
 
 const styles = {
     root: {
@@ -17,7 +17,7 @@ const styles = {
     },
 };
 
-class AppShell extends React.Component {
+class AppShell extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,9 +36,9 @@ class AppShell extends React.Component {
                         </IconButton>
                     </AppBar>
                     <Drawer open={this.state.toggle}>
-                        <MenuItem onClick={this.handleDrawerToggle}><RouterLink to='/'>Home</RouterLink></MenuItem>
-                        <MenuItem onClick={this.handleDrawerToggle}><RouterLink to='/text'>Text</RouterLink></MenuItem>
-                        <MenuItem onClick={this.handleDrawerToggle}><RouterLink to='/word'>Word</RouterLink></MenuItem>
+                        <MenuItem onClick={this.handleDrawerToggle}><Link to='/'>Home</Link></MenuItem>
+                        <MenuItem onClick={this.handleDrawerToggle}><Link to='/text'>Text</Link></MenuItem>
+                        <MenuItem onClick={this.handleDrawerToggle}><Link to='/word'>Word</Link></MenuItem>
                     </Drawer>
                 </div>
                 <div id='content' style={{ margin: 'auto', marginTop: '20px' }}>
