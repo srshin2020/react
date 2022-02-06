@@ -1,5 +1,6 @@
 'use strict'
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -17,7 +18,14 @@ module.exports = {
         }]
     },
     devtool: 'eval-source-map',
-    plugins: [],
+    plugins: [
+        new CopyWebpackPlugin ({
+            patterns: [{
+            context: './public',
+            from: '*.*'
+            }]
+        })
+    ],
     devServer: {
         static: './public',
         host: 'localhost',
