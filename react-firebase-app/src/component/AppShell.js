@@ -36,9 +36,9 @@ class AppShell extends Component {
                         </IconButton>
                     </AppBar>
                     <Drawer open={this.state.toggle}>
-                        <MenuItem onClick={this.handleDrawerToggle}><Link to='/'>Home</Link></MenuItem>
-                        <MenuItem onClick={this.handleDrawerToggle}><Link to='/text'>Text</Link></MenuItem>
-                        <MenuItem onClick={this.handleDrawerToggle}><Link to='/word'>Word</Link></MenuItem>
+                        <MenuItem onClick={this.handleDrawerToggle}><Link to='/'>홈화면</Link></MenuItem>
+                        <MenuItem onClick={this.handleDrawerToggle}><Link to='/text'>텍스트</Link></MenuItem>
+                        <MenuItem onClick={this.handleDrawerToggle}><Link to='/word'>단어</Link></MenuItem>
                     </Drawer>
                 </div>
                 <div id='content' style={{ margin: 'auto', marginTop: '20px' }}>
