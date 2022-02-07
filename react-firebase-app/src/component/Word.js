@@ -43,12 +43,12 @@ class Word extends React.Component {
             return res.json();
         }).then(words => {
             console.log(words);
-            this.setState({ words: words })
+            this.setState({ words: (words == null) ? {} : words })
         });
     }
     // post method : firebase 서버에 추가  
     _post(word) {
-        return fetch(`${databaseURL}/words.json`, {
+        fetch(`${databaseURL}/words.json`, {
             method: 'POST',
             body: JSON.stringify(word)
         }).then(res => {
@@ -85,6 +85,11 @@ class Word extends React.Component {
     //     return (nextState.words != this.state.words)
     // }
 
+    // component가 처음 마운트될 때 서버에서 리스트 가져옮. 
+    componentDidMount() {
+        this._get();
+    }
+
     handleDialogToggle = () => {
         this.setState({
             open: !this.state.open
@@ -96,10 +101,7 @@ class Word extends React.Component {
         nextState[e.target.name] = e.target.value;
         this.setState(nextState);
     }
-    // component가 처음 마운트될 때 서버에서 리스트 가져옮. 
-    componentDidMount() {
-        this._get();
-    }
+
     // 삭제 버튼 클릭시 서버로 삭제 요청 
     handleDelete = (id) => {
         this._delete(id);
