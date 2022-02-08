@@ -15,14 +15,17 @@ module.exports = {
             test: /\.js$/,
             include: path.resolve(__dirname, './src'),
             use: 'babel-loader'
+        }, {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
         }]
     },
     devtool: 'eval-source-map',
     plugins: [
-        new CopyWebpackPlugin ({
+        new CopyWebpackPlugin({
             patterns: [{
-            context: './public',
-            from: '*.*'
+                context: './public',
+                from: '*.*'
             }]
         })
     ],
