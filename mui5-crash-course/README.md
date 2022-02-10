@@ -12,6 +12,11 @@
 - mui5 설치
     - npm install @mui/material @emotion/react @emotion/styled
     - npm install @mui/icons-material
+- react-router-dom 설치
+    - npm install react-router-dom
+- datepicker를 사용하기 위해 설치 
+    - npm install @mui/lab
+    - npm install date-fns
 
 
 

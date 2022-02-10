@@ -28,22 +28,14 @@ const Tourcard = ({ tour }) => {
         <Grid item sm={6} md={3}>
             <ThemeProvider theme={theme}>
                 <Paper elevation={5} className='paper'>
-
-                    <img src={tour.image}
-                        alt=''
-                        className='img'
-                    />
+                    <img src={tour.image} alt='' className='img' />
                     <Box paddingX={1}>
                         <Typography component='h2' variant='subtitle1'>{tour.name}</Typography>
-                        <Box sx={{
-                            display: 'flex', alignItems: 'center'
-                        }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
                             <AccessTime sx={{ width: 12.5 }} />
                             <Typography variant='body2' component='p' marginLeft={0.5}>{tour.duration} hours</Typography>
                         </Box>
-                        <Box sx={{
-                            display: 'flex', alignItems: 'center', marginTop: 3
-                        }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', marginTop: 3 }}>
                             <Rating name='read-only' value={tour.rating} precision={0.5} size='small' />
                             <Typography variant='body2' component='p' marginLeft={0.5}>{tour.rating}</Typography>
                             <Typography variant='body2' component='p' marginLeft={1.5}>({tour.numberOfReviews} Reviews)</Typography>
