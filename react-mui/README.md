@@ -1,3 +1,29 @@
+# React MUI 5.4.1
+
+## 강좌 in youtube 
+- React UI 라이브러리 - MUI (Material-ui)
+  - by 생활코딩
+  - https://www.youtube.com/watch?v=or3np70c7zU&t=156s
+  - https://seomal.com/map/1/178
+- React MUI (Material UI)로 로그인 UI 만들어보기
+  - by 생활코딩
+  - https://www.youtube.com/watch?v=PWePBteFeeE
+- mui 
+  - https://mui.com/
+
+## get started
+- react-mui 디렉토리에 react app 설치
+  - create-react-app react-mui
+- mui 설치
+  - npm install @mui/material @emotion/react @emotion/styled 
+  - npm install @mui/icons-material
+
+## 실행 화면
+<img width="620" alt="스크린샷 2022-02-10 오후 1 06 55" src="https://user-images.githubusercontent.com/96237885/153335452-d88c4ace-8dca-4044-8084-a85c5c2d328a.png">
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
