@@ -4,11 +4,15 @@
 - MUI5 (Material UI) Crash Course
     - by Laith Harb
     - https://www.youtube.com/watch?v=o1chMISeTC0
+    - https://github.com/harblaith7/MUI5
 
 ## Getting Started
 - app 설치
     - create-react-app mui5-crash-course
 - mui5 설치
+    - npm install @mui/material @emotion/react @emotion/styled
+    - npm install @mui/icons-material
+
 
 
 
