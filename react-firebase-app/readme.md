@@ -47,8 +47,8 @@
   -  
 
 ## 스크린샷
-<img width="610" alt="스크린샷 2022-02-10 오후 1 15 11" src="https://user-images.githubusercontent.com/96237885/153336118-a529f2b2-5050-4cd3-a18e-0baa64d7d9b6.png">
-<img width="593" alt="스크린샷 2022-02-10 오후 1 14 59" src="https://user-images.githubusercontent.com/96237885/153336132-399007a4-7c33-41fc-b508-92325cb4d5b2.png">
-<img width="590" alt="스크린샷 2022-02-10 오후 1 14 49" src="https://user-images.githubusercontent.com/96237885/153336147-f50c774c-3549-4efe-a681-2c32822046ca.png">
-<img width="587" alt="스크린샷 2022-02-10 오후 1 14 35" src="https://user-images.githubusercontent.com/96237885/153336158-0a4100ae-e213-4ff8-bd1d-80bf0464a058.png">
-<img width="582" alt="스크린샷 2022-02-10 오후 1 14 26" src="https://user-images.githubusercontent.com/96237885/153336176-d2cd9438-95d3-4f5c-bfe5-d71a42b15734.png">
+<img width="310" alt="스크린샷 2022-02-10 오후 1 15 11" src="https://user-images.githubusercontent.com/96237885/153336118-a529f2b2-5050-4cd3-a18e-0baa64d7d9b6.png">
+<img width="300" alt="스크린샷 2022-02-10 오후 1 14 59" src="https://user-images.githubusercontent.com/96237885/153336132-399007a4-7c33-41fc-b508-92325cb4d5b2.png">
+<img width="300" alt="스크린샷 2022-02-10 오후 1 14 49" src="https://user-images.githubusercontent.com/96237885/153336147-f50c774c-3549-4efe-a681-2c32822046ca.png">
+<img width="307" alt="스크린샷 2022-02-10 오후 1 14 35" src="https://user-images.githubusercontent.com/96237885/153336158-0a4100ae-e213-4ff8-bd1d-80bf0464a058.png">
+<img width="302" alt="스크린샷 2022-02-10 오후 1 14 26" src="https://user-images.githubusercontent.com/96237885/153336176-d2cd9438-95d3-4f5c-bfe5-d71a42b15734.png">
