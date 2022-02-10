@@ -6,6 +6,7 @@ import { Grid } from '@mui/material';
 import { Dialog } from '@mui/material';
 import { DialogTitle } from '@mui/material';
 import { useState } from 'react';
+import Login from './Login'
 function Header() {
   return (
     <header>
@@ -50,7 +51,7 @@ function Article() {
     </article>
   )
 }
-function App() {
+function DialogComponent() {
   return (
     <Container fixed>
       <Header></Header>
@@ -63,7 +64,18 @@ function App() {
         </Grid>
       </Grid>
     </Container>
-  );
+  )
+
+}
+function App() {
+  return (
+    <div>
+      <DialogComponent></DialogComponent>
+      <br />
+      <br />
+      <Login></Login>
+    </div>
+  )
 }
 
 export default App;
