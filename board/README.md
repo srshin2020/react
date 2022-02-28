@@ -1,3 +1,12 @@
+
+<img width="600" alt="스크린샷 2022-02-28 오후 7 36 10" src="https://user-images.githubusercontent.com/96237885/155968789-d20e68e1-4dcc-4ece-9a15-4ab0efcf7cb4.png">
+
+<img width="600" alt="스크린샷 2022-02-28 오후 7 36 44" src="https://user-images.githubusercontent.com/96237885/155968779-4a85f136-9f09-4253-9c37-481859ced5b1.png">
+
+<img width="600" alt="스크린샷 2022-02-28 오후 7 37 03" src="https://user-images.githubusercontent.com/96237885/155968766-6e17f61a-5550-4e76-85ee-05bdf21b49f6.png">
+
+<img width="600" alt="스크린샷 2022-02-28 오후 7 37 27" src="https://user-images.githubusercontent.com/96237885/155968756-026d06cd-e465-443c-b489-8c009df6af1d.png">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -28,16 +37,6 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ## Learn More
 
