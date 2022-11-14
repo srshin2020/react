@@ -24,6 +24,8 @@ npm install --save-dev @typescript-eslint/parser
 npx prettier --check ./src
 npx prettier --write ./src
 npm install react-router-dom
+npm install -g json-server
+json-server --watch ./src/db/data.json --port 3001
 
 ### 찾아보기
 
