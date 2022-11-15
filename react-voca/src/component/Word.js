@@ -9,6 +9,17 @@ export default function Word({ word }) {
                 <input
                     type="checkbox"
                     onChange={() => {
+                        const url = `http://localhost:3001/words/${word.id}`;
+                        fetch(url, {
+                            // update
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ ...word, isDone: !isDone }),
+                        }).then((res) => {
+                            if (res.ok) {
+                                setIsDone(!isDone);
+                            }
+                        });
                         setIsDone(!isDone);
                     }}
                     checked={isDone}></input>
