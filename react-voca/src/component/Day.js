@@ -4,6 +4,7 @@ import useFetch from '../hooks/useFetch';
 import Word from './Word';
 
 export default function Day() {
+    console.log('day');
     const { day } = useParams();
     const url = `http://localhost:3001/words?day=${day}`;
     const wordList = useFetch(url);

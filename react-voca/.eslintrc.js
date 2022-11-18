@@ -17,6 +17,8 @@ module.exports = {
     plugins: ['react', '@typescript-eslint'],
     rules: {
         'no-console': 'off',
+        'no-alert': 'off',
+        'no-restricted-globals': 'off',
     },
     parser: '@typescript-eslint/parser',
     overrides: [

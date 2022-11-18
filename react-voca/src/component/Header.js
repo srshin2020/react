@@ -7,12 +7,12 @@ export default function Header() {
                 <Link to="/">토익 고급단어</Link>
             </h1>
             <div className="menu">
-                <a href="#x" className="link">
+                <Link to="/createWord" className="link">
                     단어 추가
-                </a>
-                <a href="#x" className="link">
+                </Link>
+                <Link to="/createDay" className="link">
                     Day 추가
-                </a>
+                </Link>
             </div>
         </div>
     );

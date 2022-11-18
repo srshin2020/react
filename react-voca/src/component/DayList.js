@@ -3,6 +3,7 @@ import useFetch from '../hooks/useFetch';
 // import dummy from '../db/data.json';
 
 export default function DayList() {
+    console.log('daylist');
     const url = 'http://localhost:3001/days';
     const days = useFetch(url);
     return (
