@@ -1,69 +1,91 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Routes, Link, NavLink, useParams} from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import styles from "./index.module.css";
 
+import reportWebVitals from "./reportWebVitals";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Link,
+  NavLink,
+  useParams,
+} from "react-router-dom";
 
 function Home() {
-  return (
-    <div className="article" >Home....</div>
-  )
+  return <div className={styles.article}>Home....</div>;
 }
 
-
 let contents = [
-  {id : 0, title : "HTML", description : "HTML is ..."},
-  {id : 1, title : "JS", description : "JS is ..."},
-  {id : 2, title : "REACT", description : "REACT  is ..."},
-]
+  { id: 0, title: "HTML", description: "HTML is ..." },
+  { id: 1, title: "JS", description: "JS is ..." },
+  { id: 2, title: "REACT", description: "REACT  is ..." },
+];
 
 function Subtopic() {
-  let param = useParams(); 
-  let content=contents[param.topic_id];
-  return (
-    <div> {content.description}</div>
-  )
+  let param = useParams();
+  let content = contents[param.topic_id];
+  return <div> {content.description}</div>;
 }
 
 function Topics() {
   return (
-    <div className="container" >
-    <div className="article">Topic...</div>
-    <ul className="nav">
-      {contents.map (index =>(<li key={index.id}><NavLink className="nav-item" to={`${index.id}`}>{index.title}</NavLink></li>))}  
-    </ul>
-    <Routes >
-        <Route path=":topic_id" element={<Subtopic/>} ></Route>
-    </Routes>
-
+    <div className={styles.container}>
+      <div className={styles.article}>Topic...</div>
+      <ul className={styles.nav}>
+        {contents.map((index) => (
+          <li key={index.id}>
+            <NavLink className={styles.navitem} to={`${index.id}`}>
+              {index.title}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+      <Routes>
+        <Route path=":topic_id" element={<Subtopic />}></Route>
+      </Routes>
     </div>
-  )
+  );
 }
 
 function Contact() {
-  return (
-    <div className="article" >Contact...</div>
-  )
+  return <div className={styles.article}>Contact...</div>;
 }
 
 function App() {
   return (
-    <div className="container">
-      <ul className="nav">
-        <li><NavLink className="nav-item" to="/">Home</NavLink></li>
-        <li><NavLink className="nav-item" to="/topics">Topics</NavLink></li>
-        <li><NavLink className="nav-item" to="/contact">Contact</NavLink></li>
+    <div className={styles.container}>
+      <ul className={styles.nav}>
+        <li>
+          <NavLink className={styles.navitem} to="/">
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className={styles.navitem} to="/topics">
+            Topics
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className={styles.navitem} to="/contact">
+            Contact
+          </NavLink>
+        </li>
       </ul>
-      <Routes >
-        <Route path="/" element={<Home />}/>
-        <Route path="/topics/*" element={<Topics />}/>
-        <Route path="/contact" element={<Contact />}/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/topics/*" element={<Topics />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
-  )
+  );
 }
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
